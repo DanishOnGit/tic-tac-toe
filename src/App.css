@@ -1,3 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pri-color: hsl(218, 99, 57);
+  --x-color: rgb(58, 119, 250);
+  --o-color: hsl(23, 84, 55);
+  --gradient-blue: rgb(138, 221, 207);
+  --gradient-orange: rgb(246, 209, 110);
+}
+
 .App {
   text-align: center;
+}
+
+.inner-div {
+  height: 2rem;
+  width: 6rem;
+  background-color: var(--x-color);
+
+  position: absolute;
+  top: 2rem;
+  left: 10rem;
+}
+.rot-45 {
+  transform: rotate(45deg);
+  background-image: linear-gradient(
+    to top,
+    rgb(47,109,234),
+    rgb(74,165,227)
+  );
+}
+.rot--45 {
+  transform: rotate(-45deg);
+  background-image: linear-gradient(
+    to right,
+    rgb(47,109,234),
+    rgb(58,134,226),
+    /* rgb(91,177,216), */
+    rgb(123,226,212)
+  );
 }
