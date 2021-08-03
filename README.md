@@ -1,1 +1,1 @@
-# Let's play Tic-Tac-Toe! 
+# A Tic-Tac-Toe game
