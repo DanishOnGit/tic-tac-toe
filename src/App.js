@@ -1,10 +1,11 @@
 import "./App.css";
-import { X } from "./components";
+import { O, X } from "./components";
 
 function App() {
   return (
     <div className="App">
      <X/>
+     <O/>
     </div>
   );
 }

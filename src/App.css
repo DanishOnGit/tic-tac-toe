@@ -16,6 +16,7 @@
   text-align: center;
 }
 
+/* X styled */
 .inner-div {
   height: 2rem;
   width: 6rem;
@@ -29,17 +30,36 @@
   transform: rotate(45deg);
   background-image: linear-gradient(
     to top,
-    rgb(47,109,234),
-    rgb(74,165,227)
+    rgb(47, 109, 234),
+    rgb(74, 165, 227)
   );
 }
 .rot--45 {
   transform: rotate(-45deg);
   background-image: linear-gradient(
     to right,
-    rgb(47,109,234),
-    rgb(58,134,226),
-    /* rgb(91,177,216), */
-    rgb(123,226,212)
+    rgb(47, 109, 234),
+    rgb(58, 134, 226),
+    rgb(123, 226, 212)
   );
+}
+
+/* O styled */
+
+.outer-o {
+  height: 6.3rem;
+  width: 6.3rem;
+  position: relative;
+  border-radius: 50%;
+  background-image: linear-gradient(60deg, rgb(241, 83, 15),rgb(241, 138, 42), rgb(239,198,102));
+}
+.inner-o {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background-color: white;
 }
