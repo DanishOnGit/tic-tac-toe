@@ -127,6 +127,7 @@
   background-color: transparent;
   border: none;
   padding: 1rem;
+  cursor: pointer;
 }
 .btn-0,
 .btn-1,

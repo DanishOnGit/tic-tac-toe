@@ -26,6 +26,7 @@ export const Game = () => {
   const xO = crossIsNext ? "X" : "O";
 
   const handleClick = (i) => {
+    if(winner) return
     if (!squares[i]) {
       const updatedSquares = squares.map((box, idx) => (i === idx ? xO : box));
       setSquares(updatedSquares);
