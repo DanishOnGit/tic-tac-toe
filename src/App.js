@@ -1,13 +1,17 @@
-import "./App.css";
-import { O, X } from "./components";
+import { Route, Routes } from 'react-router';
+import { SelectSide, Home } from './pages';
+import { Game } from './pages';
+import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-     <X/>
-     <O/>
-    </div>
-  );
-}
-
-export default App;
+ const App = () => {
+	return (
+		<div className='App'>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/pick-side' element={<SelectSide />} />
+				<Route path='/game' element={<Game />} />
+			</Routes>
+		</div>
+	);
+};
+export default App

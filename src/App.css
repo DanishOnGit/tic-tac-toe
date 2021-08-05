@@ -1,65 +1,329 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
 :root {
-  --pri-color: hsl(218, 99, 57);
-  --x-color: rgb(58, 119, 250);
-  --o-color: hsl(23, 84, 55);
-  --gradient-blue: rgb(138, 221, 207);
-  --gradient-orange: rgb(246, 209, 110);
+  --blue-900: #495d81;
+  --blue-600: #3774ee;
+  --blue-500: #5098e6;
+  --green-600: #86e4d4;
+  --green-500: #6ec1dc;
+  --orange-600: #f67335;
+  --yellow-600: #f1e27a;
+  --gray-300: #e5e9ec;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--blue-900);
+  font-family: "Montserrat", sans-serif;
+}
 .App {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+@media (max-width:556px){
+.App{
+	padding: 1rem;
+}
+}
+.home-wrapper {
   text-align: center;
+  width: 100%;
 }
 
-/* X styled */
-.inner-div {
-  height: 2rem;
-  width: 6rem;
-  background-color: var(--x-color);
+/* Custom radio buttons */
+.radio-label .symbol {
+  opacity: 0.3;
+}
 
-  position: absolute;
-  top: 2rem;
-  left: 10rem;
+.radio-label:hover .symbol {
+  opacity: 0.5;
 }
-.rot-45 {
-  transform: rotate(45deg);
-  background-image: linear-gradient(
-    to top,
-    rgb(47, 109, 234),
-    rgb(74, 165, 227)
-  );
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  cursor: pointer;
 }
-.rot--45 {
-  transform: rotate(-45deg);
+
+.radio-blue:checked ~ .symbol {
+  opacity: 1;
+}
+
+.radio-blue {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-symbol {
+  margin-top: 2rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: var(--gray-300);
+  border-radius: 50%;
+}
+
+.radio-label:hover input ~ .radio-symbol {
+  background-color: #ccc;
+}
+
+.radio-label input:checked ~ .radio-symbol {
   background-image: linear-gradient(
     to right,
-    rgb(47, 109, 234),
-    rgb(58, 134, 226),
-    rgb(123, 226, 212)
+    var(--blue-600),
+    var(--green-500)
   );
 }
 
-/* O styled */
-
-.outer-o {
-  height: 6.3rem;
-  width: 6.3rem;
-  position: relative;
-  border-radius: 50%;
-  background-image: linear-gradient(60deg, rgb(241, 83, 15),rgb(241, 138, 42), rgb(239,198,102));
-}
-.inner-o {
-  width: 2rem;
-  height: 2rem;
+.radio-symbol:after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  inset: 0;
+  margin: auto;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 0.25rem solid white;
+  background-color: white;
+}
+.radio-label input:checked ~ .radio-symbol:after {
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    var(--blue-500),
+    var(--green-500)
+  );
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(106px, 1fr));
+  grid-template-rows: repeat(3, minmax(108px, 1fr));
+  margin: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* Tic tac toe buttons */
+.square-btn {
+  background-color: transparent;
+  border: none;
+  padding: 1rem;
+}
+.btn-0,
+.btn-1,
+.btn-3,
+.btn-4 {
+  border-bottom: 2px solid var(--gray-300);
+  border-right: 2px solid var(--gray-300);
+}
+.btn-2,
+.btn-5 {
+  border-bottom: 2px solid var(--gray-300);
+}
+
+.btn-6,
+.btn-7 {
+  border-right: 2px solid var(--gray-300);
+}
+
+/* Cross Symbol */
+.x-container {
+  display: inline-block;
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+.x-container:after {
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  left: 0;
+  border-radius: 50%;
+  z-index: -1;
+  bottom: 2rem;
+  content: "";
+  box-shadow: 0 38px 24px var(--blue-600);
+}
+
+.x-45 {
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  width: 25px;
+  height: 70px;
+  background-image: linear-gradient(var(--green-600), var(--blue-600));
+  transform: rotate(45deg);
+}
+
+.x-minus45 {
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  width: 25px;
+  height: 70px;
+  background-image: linear-gradient(
+    to right,
+    var(--blue-500),
+    var(--green-500)
+  );
+  transform: rotate(-45deg);
+}
+
+/* Zero Symbol */
+
+.O-container {
+  display: inline-block;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to right,
+    var(--orange-600),
+    var(--yellow-600)
+  );
+  transform: rotate(-45deg);
+}
+
+.O-container:after {
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  left: 0;
+  border-radius: 50%;
+  z-index: -1;
+  bottom: 2rem;
+  content: "";
+  box-shadow: 0 38px 24px var(--orange-600);
+  transform: rotate(45deg);
+}
+
+.O-inner {
+  position: absolute;
+  width: 23px;
+  height: 23px;
   border-radius: 50%;
   background-color: white;
+  inset: 0;
+  margin: auto;
+}
+
+/* Button Variants */
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 1.5rem;
+  min-width: 120px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  font-size: 0.9rem;
+}
+
+.primary-btn {
+  background-color: var(--blue-600);
+  color: white;
+  font-weight: 300;
+}
+.btn-secondary {
+  background-color: white;
+  font-weight: 400;
+}
+
+.btn-icon {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* bagde */
+.capsule {
+  display: inline-block;
+  background-color: white;
+  font-weight: 400;
+  padding: 0.2rem 1rem;
+  font-weight: 700;
+  border-radius: 1.5rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  font-size: 0.9rem;
+}
+
+/* utilities */
+.flex {
+  display: flex;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.items-center {
+  align-items: center;
+}
+.text-center{
+	text-align: center;
+}
+.m-auto {
+  margin: auto;
+}
+.font-sm {
+  font-size: 1rem;
+}
+.p-tb1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.p-tb2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}
+.mr-2 {
+  margin-right: 2rem;
+}
+.text-blue {
+  color: var(--blue-600);
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+
+/* Final Result */
+.result {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 2rem 0;
 }

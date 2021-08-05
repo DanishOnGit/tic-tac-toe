@@ -1,7 +1,7 @@
 export const O = () => {
   return (
-    <div className="outer-o">
-      <div className="inner-o"></div>
-    </div>
+    <div className='O-container symbol'>
+    <div className='O-inner'></div>
+  </div>
   );
 };
