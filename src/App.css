@@ -18,16 +18,16 @@
   font-family: "Montserrat", sans-serif;
 }
 .App {
-  max-width: 600px;
+  max-width: 37rem;
   margin: auto;
   display: flex;
   align-items: center;
   min-height: 100vh;
 }
-@media (max-width:556px){
-.App{
-	padding: 1rem;
-}
+@media (max-width: 556px) {
+  .App {
+    padding: 1rem;
+  }
 }
 .home-wrapper {
   text-align: center;
@@ -115,6 +115,12 @@
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+@media (max-width:556px){
+	.board{
+		width: 100%;
+		grid-template-columns: repeat(3,1fr);
+	}
+}
 
 /* Tic tac toe buttons */
 .square-btn {
@@ -146,6 +152,7 @@
   width: 70px;
   height: 70px;
 }
+
 .x-container:after {
   position: absolute;
   width: 100%;
@@ -182,6 +189,16 @@
   transform: rotate(-45deg);
 }
 
+@media (max-width:556px){
+	.x-container{
+		width: 50px;
+        height: 50px;
+	}
+	.x-45,.x-minus45{
+		width: 20px;
+        height: 50px;
+	}
+}
 /* Zero Symbol */
 
 .O-container {
@@ -221,6 +238,16 @@
   margin: auto;
 }
 
+@media (max-width:556px){
+	.O-container{
+		width: 50px;
+        height: 50px;
+	}
+	.O-inner{
+		width: 15px;
+        height: 15px;
+	}
+}
 /* Button Variants */
 .btn {
   text-decoration: none;
@@ -262,8 +289,8 @@
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-/* bagde */
-.capsule {
+/* Score wrapper */
+.score-wrapper {
   display: inline-block;
   background-color: white;
   font-weight: 400;
@@ -285,8 +312,8 @@
 .items-center {
   align-items: center;
 }
-.text-center{
-	text-align: center;
+.text-center {
+  text-align: center;
 }
 .m-auto {
   margin: auto;
@@ -297,6 +324,9 @@
 .p-tb1 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.col-3 >* {
+	width: 30%;
 }
 
 .p-tb2 {
@@ -319,7 +349,9 @@
 .rounded-full {
   border-radius: 50%;
 }
-
+.w-full{
+	width: 100%;
+}
 /* Final Result */
 .result {
   text-align: center;

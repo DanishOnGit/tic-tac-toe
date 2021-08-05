@@ -46,7 +46,7 @@ export const Game = () => {
   };
   return (
     <>
-      <div className="m-auto text-center">
+      <div className="m-auto text-center w-full">
         {winner && (
           <div className="result">
             {winner === chosenSide
@@ -54,9 +54,9 @@ export const Game = () => {
               : `${opponent} won the game 🍰`}
           </div>
         )}
-        <div className="flex justify-around items-center p-tb1">
+        <div className="flex justify-around items-center p-tb1 col-3">
           <p>Alex</p>
-          <span className="capsule">{`${score1}-${score2}`}</span>
+          <span className="score-wrapper">{`${score1}-${score2}`}</span>
           <p>{opponent}</p>
         </div>
         <Board squares={squares} clickHandler={handleClick} />
